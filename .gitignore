@@ -1,32 +1,93 @@
-# Prerequisites
-*.d
+Language: C++
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+ Open in editor
+1
+// NAMA     :Zeva Nathania Yuke Putri
+2
+// NRP      :5004221151
+3
+// Jurusan  :Kimia
+4
+​
+5
+#include <iostream>
+6
+#include <cmath>
+7
+​
+8
+#define GRAVITASI 10 //10 m/s^2
+9
+#define START_PENGUKURAN 1 //pengukuran dimulai dari 1 meter
+10
+#define SUDUT 45 //sudut elevasi tembakan
+11
+​
+12
+float mencari_V0(int xmax)
+13
+{
+14
+    /* Tulis fungsi mencari V0 kalian disini */
+15
+    return sqrt(xmax*10);
+16
+}
+17
+​
+18
+int speed_dgn_loss(int V0)
+19
+{
+20
+    /* tulis fungsi hitung_loss kalian disini */
+21
+    if (V0 <= 10){
+22
+        return 1;
+23
+    }
+24
+    else if (V0 >= 11 && V0 <= 20){
+25
+        return 3;
+26
+    }
+27
+    else {
+28
+        return 5;
+29
+    }
+30
+}
+31
+​
+32
+int main()
+33
+{
+34
+    /* tulis kode utama kalian disini */
+35
+    int x, jarak;
+36
+    float vtangensial;
+37
+    /* input adalah kecepatan tangensial maksimum roller */
+38
+    /* std::cin >> input */
+39
+    std::cin >> x;
+40
+    jarak = pow(x-speed_dgn_loss(x), 2)*1/GRAVITASI;
+41
+    vtangensial = mencari_V0(jarak) + speed_dgn_loss(mencari_V0(jarak));
+42
+    /* std::cout << jarak << " " << kecepatan tangensial << std::endl */
+43
+    std::cout << jarak << " " , vtangensial :: std::endl;
+44
+    return 0;
+45
+}
